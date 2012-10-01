@@ -5,3 +5,4 @@ pkg/*
 
 Vagrantfile
 .vagrant
+*.sublime*

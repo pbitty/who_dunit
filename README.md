@@ -1,4 +1,4 @@
-# NOTE: THIS IS ALPHA CODE
+# NOTE: THIS IS ALPHA CODE 
 
 ## who_dunit
 
@@ -31,10 +31,13 @@ This module allows you to store the user that created and last-updated a model.
 ## Design
 
 In ApplicationController:
-around_filter stores the current user in current thread for the duration of the action
+* around_filter stores the current user in current thread for the duration of the action
+** current user stored in thread-local variable 
 
 In Model:
-before_create calback sets 'created_by' column
-before_save callback sets 'updated_by' column
+* has_one association to user for 'created_by'
+* has_one association to user for 'updated_by'
+* before_create calback sets 'created_by' column
+* before_save callback sets 'updated_by' column
 
 In Migrations:
