@@ -1,6 +1,6 @@
-require "who_dunit/version"
-require "who_dunit/core"
-
-module WhoDunit
-  # Your code goes here...
+"who_dunit".tap do |root|
+	require "#{root}/version"
+	require "#{root}/core"
+	require "#{root}/model_additions"
+	require "#{root}/controller_additions"
 end

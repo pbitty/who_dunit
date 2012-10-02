@@ -1,21 +1,25 @@
 module WhoDunit
 	module ModelAdditions
 		def whodunit(options = {})
-			class_eval do
-				belongs_to :created_by, class: options[:user_class]
-				belongs_to :updated_by, class: options[:user_class]
+			options = {user_class: User}.merge(options)
 
-				## TODO Move callbacks to an observer so we can have access to WhoDunit's scope,
-				## to be able to get current_user
-				before_create do
-					created_by = current_user
-				end
+			belongs_to :created_by, class_name: options[:user_class]
+			belongs_to :updated_by, class_name: options[:user_class]
 
-				before_save do
-					updated_by = current_user
-				end
-			end
+			before_create WhoDunit::Callbacks
+			before_save WhoDunit::Callbacks
 		end
 	end
 
+	class Callbacks
+		extend WhoDunit::Core
+
+		def self.before_create(model)
+			model.created_by = self.current_user if self.current_user?
+		end
+
+		def self.before_save(model)
+			model.updated_by = self.current_user if self.current_user?
+		end
+	end
 end
