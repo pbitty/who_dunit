@@ -10,7 +10,7 @@ This module allows you to store the user that created and last-updated a model.
 ### In your model
 ```ruby
     class Model < ActiveRecord:Base
-        who_dunit #Enable saving of created_by and updated_by
+        who_dunit # Enable saving of created_by and updated_by
     end
 ```
 
@@ -18,7 +18,7 @@ This module allows you to store the user that created and last-updated a model.
 
 ``` ruby
 	class ApplicationController < ActiveController:Base
-		who_dunit #Enable tracking of current user
+		who_dunit # Enable tracking of current user
 	end
 ```
 

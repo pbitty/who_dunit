@@ -6,3 +6,7 @@ pkg/*
 Vagrantfile
 .vagrant
 *.sublime*
+
+# IntelliJ files
+.idea/
+*.iml
