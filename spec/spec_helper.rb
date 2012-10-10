@@ -10,7 +10,7 @@ require 'rails/test_unit/railtie'
 root = File.expand_path(File.dirname(__FILE__))
 
 # Application config
-module Config
+module Test
   class Application < ::Rails::Application
     # config happens here
     config.active_support.deprecation = :stderr
@@ -18,7 +18,7 @@ module Config
 end
 
 # Initialize the app
-Config::Application.initialize!
+Test::Application.initialize!
 
 require 'rspec/rails'
 

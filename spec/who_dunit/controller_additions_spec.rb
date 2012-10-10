@@ -8,9 +8,10 @@ class User
 end
 
 class TestController < ActionController::Base
-  attr_reader :provided_user
-
+  extend WhoDunit::ControllerAdditions
   who_dunit
+
+  attr_reader :provided_user
 
   def test_action
     @provided_user = Core.current_user
@@ -23,12 +24,13 @@ end
 
 describe WhoDunit::ControllerAdditions do
 
-  it "should pass current user to WhoDunit::Core" do
-    action = TestController.action(:test_action)
-    action.call({})
-
-    action.provided_user.should(action.current_user)
+  Test::Application.routes.draw do
+    get 'test_action' => "test#test_action"
   end
 
-	pending "getting started with ControllerAdditions"
+  it "should pass current user to WhoDunit::Core" do
+    controller = TestController.new
+    controller.test_action
+    controller.provided_user.should(controller.current_user)
+  end
 end
