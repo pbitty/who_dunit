@@ -1,6 +1,6 @@
 module WhoDunit
 	module ModelAdditions
-		def whodunit(options = {})
+		def who_dunit(options = {})
 			options = {user_class: User}.merge(options)
 
 			belongs_to :created_by, class_name: options[:user_class]
