@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 class Core
 	extend WhoDunit::Core
 end
@@ -10,7 +12,7 @@ class Model < SuperModel::Base
 	who_dunit
 end
 
-describe WhoDunit do
+describe WhoDunit::ModelAdditions do
 
 	before do
 		@current_user = User.create!

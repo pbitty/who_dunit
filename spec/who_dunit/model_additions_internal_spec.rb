@@ -1,4 +1,9 @@
-class AnotherUser < SuperModel::Base
+require 'spec_helper'
+
+class User
+end
+
+class AnotherUser
 end
 
 ##
@@ -22,9 +27,8 @@ end
 describe WhoDunit do
 	describe "options" do
 		describe "setting class of associations based on :user_class" do
-			# pending "figuring out how to test for this"
 
-			it "should have default :user_class = User" do
+      it "should have default :user_class = User" do
 				test_class = Class.new(ClassNameExposer) do
 					who_dunit
 				end

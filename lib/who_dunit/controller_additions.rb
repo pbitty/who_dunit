@@ -1,5 +1,5 @@
 module WhoDunit
+  module ControllerAdditions
 
-	module ControllerAdditions
-	end
+  end
 end
