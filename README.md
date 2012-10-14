@@ -2,7 +2,7 @@
 
 ## who_dunit
 
-This module allows you to store the user that created and last-updated a model.
+This module wires Rails to store the user that created and last-updated an ActiveRecord model.
 
 
 ## Usage
